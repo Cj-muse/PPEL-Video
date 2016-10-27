@@ -6,6 +6,8 @@
     <uses-sdk android:minSdkVersion="21"  android:targetSdkVersion="24" />
     <uses-feature android:name="android.hardware.camera2" android:required="true" />
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
 
     <application
         android:allowBackup="true"

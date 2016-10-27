@@ -388,7 +388,8 @@ public class Camera2VideoFragment extends Fragment
     private boolean hasPermissionsGranted(String[] permissions) {
         for (String permission : permissions) {
             if (ActivityCompat.checkSelfPermission(getActivity(), permission)
-                    != PackageManager.PERMISSION_GRANTED) {
+                    != PackageManager.PERMISSION_GRANTED)
+            {
                 return false;
             }
         }
@@ -398,8 +399,10 @@ public class Camera2VideoFragment extends Fragment
     /**
      * Tries to open a {@link CameraDevice}. The result is listened by `mStateCallback`.
      */
-    private void openCamera(int width, int height) {
-        if (!hasPermissionsGranted(VIDEO_PERMISSIONS)) {
+    private void openCamera(int width, int height)
+    {
+        if (!hasPermissionsGranted(VIDEO_PERMISSIONS))
+        {
             requestVideoPermissions();
             return;
         }
@@ -661,8 +664,8 @@ public class Camera2VideoFragment extends Fragment
         mIsRecordingVideo = false;
         mButtonVideo.setText(R.string.record);
         // Stop recording
-        mMediaRecorder.stop();
-        mMediaRecorder.reset();
+        //mMediaRecorder.stop();
+        //mMediaRecorder.reset();
 
         Activity activity = getActivity();
         if (null != activity) {
@@ -671,7 +674,10 @@ public class Camera2VideoFragment extends Fragment
             Log.d(TAG, "Video saved: " + mNextVideoAbsolutePath);
         }
         mNextVideoAbsolutePath = null;
-        startPreview();
+        //startPreview();
+
+        closeCamera();
+        openCamera (mTextureView.getWidth() , mTextureView.getHeight());
     }
 
     /**
